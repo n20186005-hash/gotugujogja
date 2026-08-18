@@ -1,0 +1,8 @@
+---
+// Design reminder: “Malam di Pal Putih” — indigo editorial heritage, real photography, restrained brass accents.
+import BaseLayout from '../../components/BaseLayout.astro';
+import LandmarkPage from '../../components/LandmarkPage.astro';
+import { getContent } from '../../i18n';
+const page = getContent('zh');
+---
+<BaseLayout {page}><LandmarkPage {page} /></BaseLayout>

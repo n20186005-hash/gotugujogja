@@ -1,0 +1,60 @@
+---
+// Design reminder: “Malam di Pal Putih” — indigo editorial heritage, real photography, restrained brass accents.
+import '../styles/global.css';
+import type { PageContent } from '../i18n';
+import { getPath, languages, shared } from '../i18n';
+
+interface Props { page: PageContent; }
+const { page } = Astro.props as Props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const languageMap = Object.fromEntries(languages.map((lang) => [lang === 'id' ? 'id-ID' : lang === 'en' ? 'en' : 'zh-CN', getPath(lang)]));
+const rating = { value: '4.8', count: '53172' };
+const placeJsonLd = {
+  '@context': 'https://schema.org', '@type': ['TouristAttraction', 'LocalBusiness'],
+  name: 'Tugu Jogja', alternateName: ['Tugu Yogyakarta', 'Tugu Pal Putih'],
+  description: page.description, image: canonical ? new URL('/media/tugu-yogyakarta-wide.jpg', Astro.site).href : undefined,
+  address: { '@type': 'PostalAddress', streetAddress: 'Jl. Jend. Sudirman, Gowongan, Kec. Jetis', addressLocality: 'Kota Yogyakarta', addressRegion: 'Daerah Istimewa Yogyakarta', postalCode: '55233', addressCountry: 'ID' },
+  geo: { '@type': 'GeoCoordinates', latitude: '-7.7829174', longitude: '110.3644859' },
+  openingHours: 'Mo-Su 00:00-23:59',
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.value, reviewCount: rating.count, bestRating: '5', worstRating: '1' },
+  url: canonical || undefined,
+  sameAs: [shared.map],
+};
+const faqJsonLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: page.faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) };
+---
+<!doctype html>
+<html lang={page.locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={page.description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#16283a" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {Object.entries(languageMap).map(([hreflang, href]) => <link rel="alternate" hreflang={hreflang} href={href} />)}
+    <link rel="alternate" hreflang="x-default" href="/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="16x16" href="/favicon.svg" />
+    <link rel="icon" sizes="32x32" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,SOFT,WONK,wght@9..144,0..100,0..1,500;9..144,0..100,0..1,600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <title>{page.title}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={page.locale} />
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:image" content="/media/tugu-yogyakarta-wide.jpg" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(placeJsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP"></script>
+    <script is:inline>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-HXM22WWPKP');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <slot />
+  </body>
+</html>

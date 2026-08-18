@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tugu Jogja">
+  <rect width="64" height="64" rx="8" fill="#16283A"/>
+  <path d="M21 53h22v-5H21zm3-7h16l-2-22h-12zm2-25h12l-2-7h-8zm3-9h6l-3-7z" fill="#F5F0E5"/>
+  <path d="M31.3 10h1.4l1.9 34H29.4zM23 48h18v2H23z" fill="#B5863C"/>
+  <circle cx="32" cy="7" r="2" fill="#B5863C"/>
+</svg>

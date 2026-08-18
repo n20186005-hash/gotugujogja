@@ -1,0 +1,156 @@
+---
+// Design reminder: “Malam di Pal Putih” — indigo editorial heritage, real photography, restrained brass accents.
+import type { PageContent } from '../i18n';
+import { getPath, languages, shared } from '../i18n';
+
+interface Props { page: PageContent; }
+const { page } = Astro.props as Props;
+const mapEmbed = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7041.397298876013!2d110.36448587696577!3d-7.782917392236763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a591a4d553bd5%3A0xc0f964003add568b!2z5pel5oO557qq5b-156KR!5e1!3m2!1sid!2sid!4v1786956350485!5m2!1sid!2sid';
+---
+<div class="shell">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href={getPath(page.lang)} aria-label="Tugu Jogja home">
+        <img class="brand-mark" src="/media/tugu-jogja-mark.webp" alt="" width="56" height="56" />
+        <span class="brand-type"><span>{page.brandKicker}</span><strong>Tugu Jogja</strong></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        {page.nav.map(([target, label]) => <a href={`#${target}`}>{label}</a>)}
+        <span class="language-switcher" aria-label="Language selection">
+          {languages.map((lang) => <a class:list={{ active: lang === page.lang }} href={getPath(lang)} aria-current={lang === page.lang ? 'page' : undefined}>{lang === 'id' ? 'ID' : lang === 'en' ? 'EN' : '中文'}</a>)}
+        </span>
+      </nav>
+      <div class="mobile-lang" aria-label="Language selection">
+        {languages.map((lang) => <a class:list={{ active: lang === page.lang }} href={getPath(lang)} aria-current={lang === page.lang ? 'page' : undefined}>{lang === 'id' ? 'ID' : lang === 'en' ? 'EN' : '中文'}</a>)}
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="/media/tugu-yogyakarta-wide.jpg" alt="Tugu Yogyakarta in its street setting" fetchpriority="high" />
+      <div class="hero-shade"></div>
+      <div class="hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">{page.heroKicker}</p>
+          <h1 class="display hero-title" id="hero-title">{page.heroTitle}</h1>
+          <p class="hero-dek">{page.heroDek}</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#panduan">{page.heroButtons[0]}</a>
+            <a class="button button-secondary" href="#cerita">{page.heroButtons[1]}</a>
+          </div>
+        </div>
+        <div class="hero-meta reveal reveal-delay">
+          {page.heroFacts.map(([label, value]) => <div class="hero-fact"><span>{label}</span><strong>{value}</strong></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section texture" aria-labelledby="intro-title">
+      <div class="section-inner intro-grid">
+        <div class="intro-axis"><div class="axis"></div><span>{page.introAxis}</span></div>
+        <div class="intro-copy">
+          <p class="eyebrow">{page.introKicker}</p>
+          <h2 class="display" id="intro-title">{page.introTitle}</h2>
+          <p class="section-lede">{page.introBody}</p>
+        </div>
+        <figure class="intro-image-wrap">
+          <img class="intro-image" src="/media/tugu-yogyakarta-portrait.jpg" alt="Tugu Yogyakarta monument" loading="lazy" />
+          <figcaption><a class="photo-credit" href={shared.photoSource} target="_blank" rel="noreferrer">{page.photoCredit}</a></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section story" id="cerita" aria-labelledby="story-title">
+      <div class="section-inner story-grid">
+        <div>
+          <p class="eyebrow">{page.storyKicker}</p>
+          <h2 class="display story-title" id="story-title">{page.storyTitle}</h2>
+          <p class="section-lede story-lede">{page.storyBody}</p>
+        </div>
+        <div class="milestones">
+          {page.milestones.map((item) => <article class="milestone"><span class="milestone-year">{item.year}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section knowledge texture" aria-labelledby="knowledge-title">
+      <div class="section-inner knowledge-grid">
+        <div class="knowledge-lead"><p class="eyebrow">{page.knowledgeKicker}</p><h2 class="display section-title" id="knowledge-title">{page.knowledgeTitle}</h2><p class="section-lede">{page.knowledgeBody}</p></div>
+        <div class="knowledge-list">{page.knowledge.map((item, index) => <article class="knowledge-item"><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+      </div>
+    </section>
+
+    <section class="section texture" id="panduan" aria-labelledby="guide-title">
+      <div class="section-inner guide-grid">
+        <div class="guide-sticky"><p class="eyebrow">{page.guideKicker}</p><h2 class="display" id="guide-title">{page.guideTitle}</h2><p class="section-lede">{page.guideBody}</p></div>
+        <div class="guide-tiles">
+          {page.guide.map((item, index) => <article class="guide-tile"><span class="guide-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section visit" aria-labelledby="visit-title">
+      <div class="section-inner visit-grid">
+        <div>
+          <p class="eyebrow">{page.visitKicker}</p>
+          <h2 class="display visit-title" id="visit-title">{page.visitTitle}</h2>
+          <p class="section-lede visit-copy">{page.visitBody}</p>
+          <dl class="visit-list">{page.visitList.map(([term, definition]) => <div><dt>{term}</dt><dd>{definition}</dd></div>)}</dl>
+        </div>
+        <div class="visit-art"><img src="/media/tugu-yogyakarta-wide.jpg" alt="Tugu Yogyakarta and the surrounding crossroads" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="section services texture" aria-labelledby="services-title">
+      <div class="section-inner">
+        <div class="services-head"><div><p class="eyebrow">{page.servicesKicker}</p><h2 class="display section-title" id="services-title">{page.servicesTitle}</h2></div><p class="services-intro">{page.servicesIntro}</p></div>
+        <div class="services-grid">{page.services.map((item) => <article class="service-card"><span class="service-tag">{item.tag}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
+        <p class="services-note">{page.servicesNote}</p>
+      </div>
+    </section>
+
+    <section class="section nearby" id="sekitar" aria-labelledby="nearby-title">
+      <div class="section-inner nearby-grid">
+        <div><p class="eyebrow">{page.nearbyKicker}</p><h2 class="display nearby-title" id="nearby-title">{page.nearbyTitle}</h2></div>
+        <div>
+          <p class="eyebrow">{page.foodsTitle}</p>
+          <div class="nearby-list">{page.foods.map((item, index) => <article class="nearby-item"><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+          <p class="eyebrow" style="margin-top: 2.6rem">{page.sightsTitle}</p>
+          <div class="nearby-list">{page.sights.map((item, index) => <article class="nearby-item"><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section responsible" aria-labelledby="responsible-title">
+      <div class="section-inner responsible-grid">
+        <div><p class="eyebrow">{page.responsibleKicker}</p><h2 class="display section-title" id="responsible-title">{page.responsibleTitle}</h2><p class="section-lede">{page.responsibleBody}</p></div>
+        <div class="responsible-list">{page.responsible.map((item, index) => <article><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div>
+      </div>
+    </section>
+
+    <section class="section texture" id="peta" aria-labelledby="map-title">
+      <div class="section-inner">
+        <p class="eyebrow">{page.mapKicker}</p>
+        <h2 class="display section-title" id="map-title">{page.mapTitle}</h2>
+        <div class="map-wrap" style="margin-top: 2.5rem">
+          <iframe src={mapEmbed} title="Tugu Jogja map" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="map-caption"><p>{page.mapBody}</p><a href={shared.map} target="_blank" rel="noreferrer">{page.mapLink}</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section texture" aria-labelledby="faq-title">
+      <div class="section-inner faq-grid">
+        <div><p class="eyebrow">{page.faqKicker}</p><h2 class="display faq-title" id="faq-title">{page.faqTitle}</h2></div>
+        <div class="faq-list">{page.faq.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
+      </div>
+    </section>
+
+    <section class="sources texture" aria-labelledby="sources-title">
+      <div class="section-inner sources-inner"><p class="eyebrow">{page.sourceLabel}</p><h2 class="display" id="sources-title">{page.sourcesTitle}</h2><div class="sources-links"><a href="https://whc.unesco.org/en/list/1671/" target="_blank" rel="noreferrer">{page.sourceLinks[0]}</a><a href="https://www.kratonjogja.id/tata-rakiting/11-tugu-golong-gilig-simbol-persatuan-raja-dan-rakyat/" target="_blank" rel="noreferrer">{page.sourceLinks[1]}</a><a href="https://jogjacagar.jogjaprov.go.id/detail/645/displayrecords-i-nama-warisan" target="_blank" rel="noreferrer">{page.sourceLinks[2]}</a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><p>{page.disclaimer}</p><p class="footer-credit">{page.sourceLabel}: Jogja Cagar & Kraton Yogyakarta</p></div></footer>
+</div>
