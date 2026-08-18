@@ -107,7 +107,7 @@ export const content: Record<Language, PageContent> = {
       { title: 'Waktu & durasi', body: 'Datang menjelang senja untuk cahaya yang lebih lembut, atau malam awal untuk melihat suasana simpang yang hidup. Rencanakan sekitar 10–20 menit di area tugu, lalu lanjutkan ke tujuan berikutnya.' },
       { title: 'Biaya masuk', body: 'Tidak ada loket atau tiket untuk melihat monumen dari ruang publik. Biaya dapat berlaku pada museum, tur, atau tempat lain yang Anda pilih sesudahnya.' },
       { title: 'Parkir', body: 'Tidak tersedia area parkir khusus di bundaran tugu. Gunakan parkir resmi di hotel, restoran, atau tempat tujuan terdekat; jangan berhenti di bahu simpang yang padat.' },
-      { title: 'Transportasi', body: 'Naik taksi daring, becak, atau kendaraan pribadi ke titik sekitar tugu. Dari Stasiun Yogyakarta, kawasan ini dapat dicapai dengan perjalanan singkat ke arah utara.' }
+      { title: 'Transportasi', body: 'Naik taksi daring, becak, atau kendaraan pribadi ke titik sekitar tugu. Dari Stasiun Yogyakarta, kawasan ini dapat dicapai dengan perjalanan singkat ke arah utara. Dari Bandar Udara Internasional Yogyakarta (YIA, Kulon Progo), jarak sekitar 35–40 km ke arah utara dengan waktu tempuh 60–90 menit; tersedia bus bandara DAMRI, taksi daring, dan taksi resmi bandara. Dari Bandar Udara Adisutjipto (JOG, Sleman), jarak sekitar 8–10 km dengan waktu tempuh 20–30 menit; pilihan umum adalah taksi daring, angkutan kota, dan kereta rel Bandara YIA–JOG jika rute tersambung.' }
     ],
     visitKicker: 'Sebelum berangkat', visitTitle: 'Berjalan cermat di simpang yang terus bergerak.', visitBody: 'Tugu paling baik dinikmati dari tepi jalan yang aman. Perhatikan arus kendaraan, gunakan jalur pejalan kaki bila tersedia, dan jangan menyeberang mendadak demi foto.',
     visitList: [['Akses', 'Area monumen berada di tengah perempatan; nikmati dari trotoar dan titik pandang di sekelilingnya.'], ['Fotografi', 'Gunakan lensa sudut lebar dari sisi jalan yang aman; jangan memasuki pulau jalan.'], ['Etika', 'Tugu adalah cagar budaya dan simpul lalu lintas. Jaga ruang publik tetap nyaman untuk semua orang.']],
@@ -178,7 +178,7 @@ export const content: Record<Language, PageContent> = {
       { title: 'Time & duration', body: 'Arrive near sunset for softer light, or in the early evening for the movement of the crossroads. Allow about 10–20 minutes around the monument before continuing your route.' },
       { title: 'Tickets & fees', body: 'There is no ticket booth for viewing the monument from public space. Fees may apply at museums, tours, or other places you choose to visit afterward.' },
       { title: 'Parking', body: 'There is no dedicated parking on the monument roundabout. Use an official facility at a hotel, restaurant, or nearby destination; do not stop on the busy approach roads.' },
-      { title: 'Getting there', body: 'Use ride-hailing, becak, or a private vehicle to reach a safe point nearby. From Yogyakarta Station, it is a short ride north toward the monument.' }
+      { title: 'Getting there', body: 'Use ride-hailing, becak, or a private vehicle to reach a safe point nearby. From Yogyakarta Station, it is a short ride north toward the monument. From Yogyakarta International Airport (YIA, Kulon Progo), the monument sits roughly 35–40 km north; typical travel time is 60–90 minutes via DAMRI airport bus, ride-hailing, or official airport taxi. From Adisutjipto Airport (JOG, Sleman), the distance is about 8–10 km with a 20–30 minute ride; common options are ride-hailing, local angkot buses, or the YIA–JOG airport rail link if the route connects.' }
     ],
     visitKicker: 'Before you go', visitTitle: 'Walk carefully through a crossroads in motion.', visitBody: 'Tugu is best appreciated from a safe edge of the street. Watch traffic, use pedestrian routes where available, and never cross suddenly for a photograph.',
     visitList: [['Access', 'The monument is in the middle of the intersection; enjoy it from surrounding pavements and viewing points.'], ['Photography', 'Use a wide angle from a safe roadside position; do not enter the traffic island.'], ['Respect', 'Tugu is both heritage and a traffic node. Keep the public space comfortable for everyone.']],
@@ -249,7 +249,7 @@ export const content: Record<Language, PageContent> = {
       { title: '时段与停留', body: '可在日落前抵达，获得更柔和的光线；也可在入夜初期感受路口的城市节奏。建议在周边停留约 10–20 分钟，再继续行程。' },
       { title: '门票与费用', body: '从公共空间观赏纪念碑无需购票。之后选择参观的博物馆、导览或其他场所可能另有收费。' },
       { title: '停车信息', body: '纪念碑环岛没有专用停车场。请使用酒店、餐厅或附近目的地的正规停车设施，不要在繁忙路口的进出道路临停。' },
-      { title: '交通方式', body: '可乘网约车、人力三轮车或自驾前往附近安全位置。从日惹火车站向北短程车程即可抵达。' }
+      { title: '交通方式', body: '可乘网约车、人力三轮车或自驾前往附近安全位置。从日惹火车站向北短程车程即可抵达。日惹国际机场（YIA，位于古隆普罗戈县 Kulon Progo）距地标约 35–40 公里、方向向北，常规车程 60–90 分钟；可选择 DAMRI 机场巴士、网约车或官方机场出租车。阿迪苏吉普托机场（JOG，位于斯莱曼县 Sleman）距地标约 8–10 公里，车程 20–30 分钟；常见方式为网约车、当地 angkot（公共小巴），或在接驳衔接时乘坐 YIA–JOG 机场城际铁路。' }
     ],
     visitKicker: '出发之前', visitTitle: '在持续流动的路口，谨慎步行。', visitBody: '从安全的人行道边缘欣赏纪念碑最合适。留意车流，优先使用可用的人行路线，不要为了拍照突然横穿。',
     visitList: [['到访方式', '纪念碑位于路口中央；请从周边人行道与安全观景点欣赏。'], ['摄影', '可从安全路边使用广角镜头拍摄；不要进入车流环岛。'], ['公共礼仪', '这里既是文化遗产，也是交通节点。请让公共空间对所有人保持舒适。']],
