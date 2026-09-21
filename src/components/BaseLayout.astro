@@ -6,18 +6,17 @@ import { getPath, languages, shared } from '../i18n';
 
 interface Props { page: PageContent; }
 const { page } = Astro.props as Props;
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
-const languageMap = Object.fromEntries(languages.map((lang) => [lang === 'id' ? 'id-ID' : lang === 'en' ? 'en' : 'zh-CN', getPath(lang)]));
-const rating = { value: '4.8', count: '53172' };
+const siteUrl = Astro.site ?? new URL('https://gotugujogja.com');
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const languageMap = Object.fromEntries(languages.map((lang) => [lang === 'id' ? 'id-ID' : lang === 'en' ? 'en' : 'zh-CN', new URL(getPath(lang), siteUrl).href]));
 const placeJsonLd = {
   '@context': 'https://schema.org', '@type': ['TouristAttraction', 'LocalBusiness'],
   name: 'Tugu Jogja', alternateName: ['Tugu Yogyakarta', 'Tugu Pal Putih'],
-  description: page.description, image: canonical ? new URL('/media/tugu-yogyakarta-wide.jpg', Astro.site).href : undefined,
+  description: page.description, image: new URL('/media/tugu-yogyakarta-wide.jpg', siteUrl).href,
   address: { '@type': 'PostalAddress', streetAddress: 'Jl. Jend. Sudirman, Gowongan, Kec. Jetis', addressLocality: 'Kota Yogyakarta', addressRegion: 'Daerah Istimewa Yogyakarta', postalCode: '55233', addressCountry: 'ID' },
   geo: { '@type': 'GeoCoordinates', latitude: '-7.7829174', longitude: '110.3644859' },
   openingHours: 'Mo-Su 00:00-23:59',
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: rating.value, reviewCount: rating.count, bestRating: '5', worstRating: '1' },
-  url: canonical || undefined,
+  url: canonical,
   sameAs: [shared.map],
 };
 const faqJsonLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: page.faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) };
@@ -30,9 +29,9 @@ const faqJsonLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
     <meta name="description" content={page.description} />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#16283a" />
-    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="canonical" href={canonical} />
     {Object.entries(languageMap).map(([hreflang, href]) => <link rel="alternate" hreflang={hreflang} href={href} />)}
-    <link rel="alternate" hreflang="x-default" href="/" />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', siteUrl).href} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" sizes="16x16" href="/favicon.svg" />
     <link rel="icon" sizes="32x32" href="/favicon.svg" />
@@ -45,8 +44,8 @@ const faqJsonLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
     <meta property="og:locale" content={page.locale} />
     <meta property="og:title" content={page.title} />
     <meta property="og:description" content={page.description} />
-    <meta property="og:image" content="/media/tugu-yogyakarta-wide.jpg" />
-    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={new URL('/media/tugu-yogyakarta-wide.jpg', siteUrl).href} />
+    <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(placeJsonLd)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />

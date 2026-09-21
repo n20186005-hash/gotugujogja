@@ -80,8 +80,8 @@ const shared = {
 
 export const content: Record<Language, PageContent> = {
   id: {
-    lang: 'id', locale: 'id-ID', label: 'Bahasa Indonesia', title: 'Tugu Jogja — Penanda Sumbu Kota',
-    description: 'Panduan ringkas untuk membaca sejarah, ritme jalan, dan pengalaman berkunjung ke Tugu Jogja atau Tugu Pal Putih.',
+    lang: 'id', locale: 'id-ID', label: 'Bahasa Indonesia',     title: 'Tugu Yogyakarta (Tugu Jogja) — Panduan Wisata Yogyakarta',
+    description: 'Panduan lengkap Tugu Yogyakarta (Tugu Jogja/Tugu Pal Putih): sejarah Golong Gilig, cara ke sana dari Malioboro, jam buka, parkir, dan tempat menarik di sekitar.',
     brandKicker: 'Yogyakarta, Indonesia', heroKicker: 'Tugu Pal Putih · Penanda Sumbu Filosofis',
     heroTitle: 'Di titik kota menemukan arah.', heroDek: 'Tugu Jogja bukan hanya latar foto. Ia berdiri di simpang jalan sebagai penanda memori, arah, dan percakapan panjang antara keraton dengan kota.',
     heroButtons: ['Rencanakan kunjungan', 'Baca kisahnya'], heroFacts: [['Lokasi', 'Persimpangan Jl. Jend. Sudirman'], ['Akses', 'Ruang luar, terbuka sepanjang hari'], ['Waktu terbaik', 'Menjelang senja hingga malam awal']],
@@ -151,8 +151,8 @@ export const content: Record<Language, PageContent> = {
     photoCredit: 'Foto Tugu: CEphoto, Uwe Aranas · CC BY-SA 3.0', directionsLabel: 'Petunjuk perjalanan', sourceLabel: 'Sumber sejarah'
   },
   en: {
-    lang: 'en', locale: 'en-US', label: 'English', title: 'Tugu Jogja — The City’s Axis Marker',
-    description: 'A concise guide to the history, street rhythm, and visitor experience of Tugu Jogja, also known as Tugu Pal Putih.',
+    lang: 'en', locale: 'en-US', label: 'English',     title: 'Tugu Yogyakarta (Tugu Jogja) — Yogyakarta Travel Guide',
+    description: 'Everything about Tugu Yogyakarta (Tugu Jogja / Tugu Pal Putih): its Golong Gilig history, how to get there from Malioboro, opening hours, parking, and nearby sights.',
     brandKicker: 'Yogyakarta, Indonesia', heroKicker: 'Tugu Pal Putih · Marker of the Philosophical Axis',
     heroTitle: 'Where the city finds its bearing.', heroDek: 'Tugu Jogja is more than a photo backdrop. It stands at a crossroads as a marker of memory, direction, and a long conversation between the palace and the city.',
     heroButtons: ['Plan a visit', 'Read its story'], heroFacts: [['Location', 'Jend. Sudirman crossroads'], ['Access', 'Outdoor landmark, open all day'], ['Best light', 'Late afternoon to early evening']],
@@ -222,8 +222,8 @@ export const content: Record<Language, PageContent> = {
     photoCredit: 'Tugu photo: CEphoto, Uwe Aranas · CC BY-SA 3.0', directionsLabel: 'Directions', sourceLabel: 'Historical source'
   },
   zh: {
-    lang: 'zh', locale: 'zh-CN', label: '中文', title: '日惹纪念碑 — 城市轴线的坐标',
-    description: '一份关于日惹纪念碑（Tugu Jogja／Tugu Pal Putih）的历史、街区节奏与实用参观信息的简明指南。',
+    lang: 'zh', locale: 'zh-CN', label: '中文',     title: 'Tugu Yogyakarta（日惹纪念碑）— 日惹旅游指南',
+    description: '关于日惹 Tugu 纪念碑（Tugu Jogja／Tugu Pal Putih）的全面指南：Golong Gilig 历史、从马利奥波罗前往的交通方式、开放时间与周边景点。',
     brandKicker: '印度尼西亚·日惹', heroKicker: 'Tugu Pal Putih · 哲学轴线的地标',
     heroTitle: '在城市中央，找到方向。', heroDek: '日惹纪念碑不只是一处拍照背景。它矗立在十字路口，标记着记忆、方向，以及王宫与城市之间延续至今的对话。',
     heroButtons: ['规划参观', '阅读故事'], heroFacts: [['位置', '苏迪曼路十字路口'], ['到访', '室外地标，全天可见'], ['最佳光线', '傍晚至夜幕初临']],

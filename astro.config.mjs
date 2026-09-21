@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-const site = process.env.PUBLIC_SITE_URL || undefined;
+const site = 'https://gotugujogja.com';
 const integrations = site ? [sitemap()] : [];
 
 export default defineConfig({
