@@ -5,7 +5,17 @@ import { getPath, languages, shared } from '../i18n';
 
 interface Props { page: PageContent; }
 const { page } = Astro.props as Props;
-const mapEmbed = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7041.397298876013!2d110.36448587696577!3d-7.782917392236763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a591a4d553bd5%3A0xc0f964003add568b!2z5pel5oO557qq5b-156KR!5e1!3m2!1sid!2sid!4v1786956350485!5m2!1sid!2sid';
+const checkedNotes = {
+ id: 'Diperiksa 19 Oktober 2026: Google Maps 4,8/5 dari 54.272 ulasan pihak ketiga; listing 24 jam tidak menjamin akses jalan atau keselamatan malam. Sumber sejarah berbeda: Dinpertaru Kota menyebut asal 1756, Dinas Kebudayaan DIY menyebut 1755; keduanya menempatkan pembangunan kembali pada 1889. Karena itu panduan memakai asal abad ke-18.',
+ en: 'Checked 19 October 2026: Google Maps 4.8/5 from 54,272 third-party reviews; a 24-hour listing does not guarantee street access or night safety. Historical sources differ: the city planning department gives 1756 for the original, while the provincial culture department gives 1755; both place rebuilding in 1889. This guide therefore uses an 18th-century origin.',
+ zh: '2026年10月19日核对：Google地图4.8/5分、54,272条第三方评价；24小时地点列表不保证道路通行或夜间安全。历史来源存在差异：市规划部门记原柱为1756年，省文化局记为1755年，均提及1889年重建。因此本指南采用起源于18世纪的表述。'
+};
+const privacyNotes = {
+ id: 'Privasi: situs ini memuat Google Analytics, Google Maps dan Google Fonts. Google dapat memproses data peramban, kunjungan dan cookie sesuai kebijakannya. Gunakan pengaturan privasi peramban untuk mengelola cookie.',
+ en: 'Privacy: this site loads Google Analytics, Google Maps and Google Fonts. Google may process browser, visit and cookie data under its policy. Use browser privacy controls to manage cookies.',
+ zh: '隐私：本站加载Google Analytics、Google地图及Google字体。Google可能按其政策处理浏览器、访问与Cookie数据。请使用浏览器隐私设置管理Cookie。'
+};
+const mapEmbed = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7041.397298876013!2d110.3670608!3d-7.782917392236763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a591a4d553bd5%3A0xc0f964003add568b!2z5pel5oO557qq5b-156KR!5e1!3m2!1sid!2sid!4v1786956350485!5m2!1sid!2sid';
 ---
 <div class="shell">
   <header class="site-header">
@@ -148,9 +158,9 @@ const mapEmbed = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7041.397
     </section>
 
     <section class="sources texture" aria-labelledby="sources-title">
-      <div class="section-inner sources-inner"><p class="eyebrow">{page.sourceLabel}</p><h2 class="display" id="sources-title">{page.sourcesTitle}</h2><div class="sources-links"><a href="https://whc.unesco.org/en/list/1671/" target="_blank" rel="noreferrer">{page.sourceLinks[0]}</a><a href="https://www.kratonjogja.id/tata-rakiting/11-tugu-golong-gilig-simbol-persatuan-raja-dan-rakyat/" target="_blank" rel="noreferrer">{page.sourceLinks[1]}</a><a href="https://jogjacagar.jogjaprov.go.id/detail/645/displayrecords-i-nama-warisan" target="_blank" rel="noreferrer">{page.sourceLinks[2]}</a></div></div>
+      <div class="section-inner sources-inner"><p class="eyebrow">{page.sourceLabel}</p><h2 class="display" id="sources-title">{page.sourcesTitle}</h2><p>{checkedNotes[page.lang]} <a href={shared.map}>Google Maps</a></p><div class="sources-links"><a href="https://whc.unesco.org/en/list/1671/" target="_blank" rel="noreferrer">{page.sourceLinks[0]}</a><a href="https://dinpertaru.jogjakota.go.id/detail/index/11762/tugu-pal-putih-2020-09-02" target="_blank" rel="noreferrer">{page.sourceLinks[1]}</a><a href="https://budaya.jogjaprov.go.id/artikel/detail/57-tugu-pal-putih" target="_blank" rel="noreferrer">{page.sourceLinks[2]}</a><a href="https://kebudayaan.kemdikbud.go.id/sumbu-kosmologis-yogyakarta-dan-penanda-bersejarahnya-ditetapkan-sebagai-warisan-dunia/" target="_blank" rel="noreferrer">{page.lang === 'zh' ? '印尼文化部门 · 宇宙轴线与历史地标' : page.lang === 'en' ? 'Indonesian culture authority · Cosmological Axis' : 'Kementerian Kebudayaan · Sumbu Kosmologis'}</a></div></div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner"><p>{page.disclaimer}</p><p class="footer-credit">{page.sourceLabel}: Jogja Cagar & Kraton Yogyakarta</p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><p>{page.disclaimer}</p><p>{privacyNotes[page.lang]} <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p><p class="footer-credit">{page.sourceLabel}: Dinpertaru Yogyakarta & Dinas Kebudayaan DIY</p></div></footer>
 </div>

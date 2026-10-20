@@ -1,6 +1,6 @@
 # Tugu Jogja Heritage
 
-一个面向游客的 **Astro + Tailwind CSS + TypeScript** 三语单页网站。默认语言为印尼语，另有完整英语页面 `/en/` 与中文页面 `/zh/`；页面内容按语言路由分离，包含本地化语言切换、`hreflang`、`TouristAttraction` / `LocalBusiness` 和 `FAQPage` JSON-LD。
+一个面向游客的 **Astro + Tailwind CSS + TypeScript** 三语单页网站。默认语言为印尼语，另有完整英语页面 `/en/` 与中文页面 `/zh/`；页面内容按语言路由分离，包含本地化语言切换、`hreflang`、`TouristAttraction` 和 `FAQPage` JSON-LD。
 
 ## 技术与验证
 
@@ -35,13 +35,7 @@ pnpm deploy
 
 ## 域名与 sitemap 配置
 
-唯一的站点 URL 配置入口是 `astro.config.mjs` 中的 `PUBLIC_SITE_URL` 环境变量。未配置时，构建仍会正常完成；canonical 与 Open Graph 绝对 URL 会优雅降级，且 `@astrojs/sitemap` 不会生成站点地图。确定域名后仅需重新构建：
-
-```bash
-PUBLIC_SITE_URL=https://your-domain.id pnpm build
-```
-
-此时 canonical、Open Graph、JSON-LD 站点 URL 与 sitemap 均从同一 `site` 配置派生；项目不包含占位域名或编造的 `lastmod`。
+站点 URL 在 `astro.config.mjs` 中配置为 https://gotugujogja.com；canonical、Open Graph、JSON-LD 与 sitemap 均从该值派生。自定义 Worker 使用 ASSETS 绑定，规范 HTTP/www 请求并保留路径和查询参数，对未知页面返回 404/noindex。
 
 ## 图片与资料来源
 
