@@ -18,8 +18,8 @@ Both files are identified by their Wikimedia Commons file pages as photographs o
 
 - Name: Tugu Jogja / Tugu Yogyakarta / Tugu Pal Putih
 - Address: Jl. Jend. Sudirman, Gowongan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55233, Indonesia
-- Map coordinates: approximately -7.7829174, 110.3644859
-- Supplied Google Maps rating: 4.8 from 53,172 reviews
+- Map coordinates: approximately -7.7829174, 110.3670608
+- Supplied Google Maps rating: 4.8 from 54,272 reviews (Google Maps, checked 19 October 2026)
 - Embedded-map locale requirement: Bahasa Indonesia (`id` / `ID`), not Chinese.
 
 ## 2026 content-enrichment notes
@@ -38,3 +38,11 @@ The Tugu sits within an active intersection. Nearby amenities should be describe
 
 - UNESCO: https://whc.unesco.org/en/list/1671/
 - Kraton Yogyakarta: https://www.kratonjogja.id/tata-rakiting/11-tugu-golong-gilig-simbol-persatuan-raja-dan-rakyat/
+
+## Public fact check — 19 October 2026
+
+Google Maps pin: -7.7829174, 110.3670608. The listing shows 24-hour access, which does not establish permission to cross to the monument island or safe night access. No current entry-fee policy is verified here; parking, tours and other destinations need separate confirmation.
+
+Historical sources disagree on the original construction year. City planning department gives 1756: https://dinpertaru.jogjakota.go.id/detail/index/11762/tugu-pal-putih-2020-09-02 . Provincial culture department gives 1755: https://budaya.jogjaprov.go.id/artikel/detail/57-tugu-pal-putih . The visitor guide uses an eighteenth-century origin and records rebuilding in 1889, explicitly explaining the source difference.
+
+Do not publish airport journey times, distances or railway connections as current without verifying the service with its operator. Keep visible FAQ answers consistent with JSON-LD. The site is an independent guide; the website field on Maps does not make it an official operator channel.
